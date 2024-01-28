@@ -6,6 +6,42 @@
 
     <link rel="stylesheet" href="output.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        #blur {
+            -webkit-mask: linear-gradient(#000 0 0), linear-gradient(#000 0 0);
+            -webkit-mask-clip: text, padding-box;
+            -webkit-mask-composite: xor;
+        }
+
+        #text-shadow {
+            text-shadow: 0 0 10px rgba(255, 255, 255, .8);
+        }
+
+        .slides img {
+            opacity: 0;
+            transition: .5s ease;
+        }
+
+        .slides.active img {
+            opacity: 1;
+        }
+
+        .slides .left-slide {
+            display: none;
+        }
+
+        .slides.active .left-slide {
+            display: flex;
+        }
+
+        .slides .right-slide {
+            display: none;
+        }
+
+        .slides.active .right-slide {
+            display: flex;
+        }
+    </style>
 
     <title>Florest</title>
 </head>
@@ -15,14 +51,14 @@
         <div class="flex items-center gap-10">
             <a href="#" class="text-3xl font-bold text-white">Tours.</a>
             <div class="flex gap-2">
-                <a class="border-2 flex p-2 border-white rounded-md"
-                 href="#"><i class='bx bxl-twitter text-xl text-white'></i></a>
-                <a class="border-2 flex p-2 border-white rounded-md"
-                 href="#"><i class='bx bxl-facebook text-xl text-white' ></i></a>
-                <a class="border-2 flex p-2 border-white rounded-md"
-                 href="#"><i class='bx bxl-telegram text-xl text-white' ></i></a>
-                <a class="border-2 flex p-2 border-white rounded-md"
-                 href="#"><i class='bx bxl-instagram-alt text-xl text-white' ></i></a>
+                <a class="border-2 flex border-white rounded-md hover:bg-white"
+                 href="#"><i class='bx p-2 bxl-twitter text-xl text-white hover:text-black'></i></a>
+                <a class="border-2 flex border-white rounded-md hover:bg-white"
+                 href="#"><i class='bx p-2 bxl-facebook text-xl text-white hover:text-black' ></i></a>
+                <a class="border-2 flex border-white rounded-md hover:bg-white"
+                 href="#"><i class='bx p-2 bxl-telegram text-xl text-white hover:text-black' ></i></a>
+                <a class="border-2 flex border-white rounded-md hover:bg-white"
+                 href="#"><i class='bx p-2 bxl-instagram-alt text-xl text-white hover:text-black' ></i></a>
             </div>
         </div>
 
@@ -34,13 +70,13 @@
         </nav>
     </header>
 
-    <section class="relative w-full h-screen">
+    <section class="relative w-full h-screen overflow-hidden">
         <div>
-            <div class="absolute w-full h-full">
+            <div class="slides active absolute w-full h-full">
                 <img src="../images/china.jpg" alt="" class="absolute w-full h-full object-cover">
-                <div class="absolute top-0 left-0 w-[50%] h-full">
-                    <div class="absolute w-full h-full bg-backgrundT backdrop-blur-[20px] flex justify-end items-center">
-                        <h1 class="font-bold text-white text-[250px]">Chi</h1>
+                <div class="left-slide absolute top-0 left-0 w-[50%] h-full">
+                    <div id="blur" class="absolute w-full h-full bg-backgrundT backdrop-blur-[20px] flex justify-end items-center">
+                        <h1 id="text-shadow" class="font-bold text-white text-[250px]">Chi</h1>
                     </div>
                     <div class="absolute bottom-8 left-20 text-white">
                         <h3 class="text-3xl font-semibold">01. China Forest Tour</h3>
@@ -53,21 +89,115 @@
                         <a href="#" class="border py-3 px-5 rounded-md bg-white text-gray-600 font-semibold shadow-lg hover:bg-transparent hover:text-white transition">More Details</a>
                     </div>
                 </div>
-                <div class="absolute top-0 right-0 w-[50%] h-full flex flex-col justify-center">
+                <div class="right-slide absolute top-0 right-0 w-[50%] h-full flex flex-col justify-center">
                     <h1 class="font-bold text-white text-[250px]">na</h1>
+                    <h3 class="text-7xl font-bold text-white drop-shadow-lg absolute translate-y-40 ml-3">Forest</h3>
+                </div>
+            </div>
+
+            <div class="slides absolute w-full h-full">
+                <img src="../images/serbia.jpg" alt="" class="absolute w-full h-full object-cover">
+                <div class="left-slide absolute top-0 left-0 w-[50%] h-full">
+                    <div id="blur" class="absolute w-full h-full bg-backgrundT backdrop-blur-[20px] flex justify-end items-center">
+                        <h1 id="text-shadow" class="font-bold text-white text-[250px]">Ser</h1>
+                    </div>
+                    <div class="absolute bottom-8 left-20 text-white">
+                        <h3 class="text-3xl font-semibold">02. Serbia Forest Tour</h3>
+                        <p class="my-4">
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+                            Alias minima perspiciatis maiores labore maxime asperiores ipsum. 
+                            Atque ducimus possimus non veniam quis, delectus mollitia, dolore, 
+                            quae explicabo tempore est consectetur.
+                        </p>
+                        <a href="#" class="border py-3 px-5 rounded-md bg-white text-gray-600 font-semibold shadow-lg hover:bg-transparent hover:text-white transition">More Details</a>
+                    </div>
+                </div>
+                <div class="right-slide absolute top-0 right-0 w-[50%] h-full flex flex-col justify-center">
+                    <h1 class="font-bold text-white text-[250px]">bia</h1>
                     <h3 class="text-7xl font-bold text-white drop-shadow-lg absolute translate-y-40 ml-3">Forest</h3>
                 </div>
             </div>
         </div>
 
+        <div class="slides absolute w-full h-full">
+            <img src="../images/brazil.jpg" alt="" class="absolute w-full h-full object-cover">
+            <div class="left-slide absolute top-0 left-0 w-[50%] h-full">
+                <div id="blur" class="absolute w-full h-full bg-backgrundT backdrop-blur-[20px] flex justify-end items-center">
+                    <h1 id="text-shadow" class="font-bold text-white text-[250px]">Bra</h1>
+                </div>
+                <div class="absolute bottom-8 left-20 text-white">
+                    <h3 class="text-3xl font-semibold">03. Brazil Forest Tour</h3>
+                    <p class="my-4">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+                        Alias minima perspiciatis maiores labore maxime asperiores ipsum. 
+                        Atque ducimus possimus non veniam quis, delectus mollitia, dolore, 
+                        quae explicabo tempore est consectetur.
+                    </p>
+                    <a href="#" class="border py-3 px-5 rounded-md bg-white text-gray-600 font-semibold shadow-lg hover:bg-transparent hover:text-white transition">More Details</a>
+                </div>
+            </div>
+            <div class="right-slide absolute top-0 right-0 w-[50%] h-full flex flex-col justify-center">
+                <h1 class="font-bold text-white text-[250px]">zil</h1>
+                <h3 class="text-7xl font-bold text-white drop-shadow-lg absolute translate-y-40 ml-3">Forest</h3>
+            </div>
+        </div>
+
+        <div class="slides absolute w-full h-full">
+            <img src="../images/africa.jpg" alt="" class="absolute w-full h-full object-cover">
+            <div class="left-slide absolute top-0 left-0 w-[50%] h-full">
+                <div id="blur" class="absolute w-full h-full bg-backgrundT backdrop-blur-[20px] flex justify-end items-center">
+                    <h1 id="text-shadow" class="font-bold text-white text-[250px]">Afri</h1>
+                </div>
+                <div class="absolute bottom-8 left-20 text-white">
+                    <h3 class="text-3xl font-semibold">04. Africa Forest Tour</h3>
+                    <p class="my-4">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+                        Alias minima perspiciatis maiores labore maxime asperiores ipsum. 
+                        Atque ducimus possimus non veniam quis, delectus mollitia, dolore, 
+                        quae explicabo tempore est consectetur.
+                    </p>
+                    <a href="#" class="border py-3 px-5 rounded-md bg-white text-gray-600 font-semibold shadow-lg hover:bg-transparent hover:text-white transition">More Details</a>
+                </div>
+            </div>
+            <div class="right-slide absolute top-0 right-0 w-[50%] h-full flex flex-col justify-center">
+                <h1 class="font-bold text-white text-[250px]">ca</h1>
+                <h3 class="text-7xl font-bold text-white drop-shadow-lg absolute translate-y-40 ml-3">Forest</h3>
+            </div>
+        </div>
+
+        <div class="slides absolute w-full h-full">
+            <img src="../images/japan.jpg" alt="" class="absolute w-full h-full object-cover">
+            <div class="left-slide absolute top-0 left-0 w-[50%] h-full">
+                <div id="blur" class="absolute w-full h-full bg-backgrundT backdrop-blur-[20px] flex justify-end items-center">
+                    <h1 id="text-shadow" class="font-bold text-white text-[250px]">Jap</h1>
+                </div>
+                <div class="absolute bottom-8 left-20 text-white">
+                    <h3 class="text-3xl font-semibold">05. Japan Forest Tour</h3>
+                    <p class="my-4">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+                        Alias minima perspiciatis maiores labore maxime asperiores ipsum. 
+                        Atque ducimus possimus non veniam quis, delectus mollitia, dolore, 
+                        quae explicabo tempore est consectetur.
+                    </p>
+                    <a href="#" class="border py-3 px-5 rounded-md bg-white text-gray-600 font-semibold shadow-lg hover:bg-transparent hover:text-white transition">More Details</a>
+                </div>
+            </div>
+            <div class="right-slide absolute top-0 right-0 w-[50%] h-full flex flex-col justify-center">
+                <h1 class="font-bold text-white text-[250px]">an</h1>
+                <h3 class="text-7xl font-bold text-white drop-shadow-lg absolute translate-y-40 ml-3">Forest</h3>
+            </div>
+        </div>
+
         <div class="absolute bottom-14 right-14 text-white flex gap-7">
-            <span class="bg-transparent hover:bg-white border-2 rounded-md transition-all">
+            <span id="prev-btn" class="bg-transparent hover:bg-white border-2 rounded-md transition-all">
                 <i class='bx bx-chevron-left text-white p-2 hover:text-black text-3xl' ></i>
             </span>
-            <span class="bg-white hover:bg-transparent border-2 rounded-md transition-all">
+            <span id="next-btn" class="bg-white hover:bg-transparent border-2 rounded-md transition-all">
                 <i class='bx bx-chevron-right text-black p-2 hover:text-white text-3xl' ></i>
             </span>
         </div>
     </section>
+
+    <script src="../src/script.js"></script>
 </body>
 </html>
